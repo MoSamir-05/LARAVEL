@@ -2,14 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/home', function () {
+Route::get('/demo', function () {
     return view('home');
 });
 // Route::get('/welcome', function () {
 //     return view('welcome');
 // });
 
-Route::view('/abc','welcome');
+Route::redirect('/demo1','/demo');
+
+
+// Route::view('/abc','welcome');
 
 Route::get('/about/{name}', function ($name) {
     // echo $name;
