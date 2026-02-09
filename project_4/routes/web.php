@@ -13,3 +13,4 @@ Route::get('user-home',[Usercontroller::class,'userHome']);
 Route::get('user-about/{name}',[Usercontroller::class,'getName']);
 Route::get('user-login',[Usercontroller::class,'userLogin']);
 
+Route::get('istar',[Usercontroller::class,'getUser']);
