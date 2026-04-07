@@ -3,19 +3,22 @@
     <form action="adduser" method="POST">
         @csrf
         Name <br>
-        <input type="text" name="fname" placeholder="Enter your name">
+        <input type="text" name="fname" placeholder="Enter your name" value="{{ old('fname') }} "
+        class="{{$errors->first('fname') ? 'input-error' : ''}}" >
         <br>
         <span style="color:red">
             @error('fname'){{ $message }}@enderror <br>
         </span>
         Last Name <br>
-        <input type="text" name="lname" placeholder="Enter your name">
+        <input type="text" name="lname" placeholder="Enter your name" value="{{ old('lname') }} "
+        class="{{$errors->first('lname') ? 'input-error' : ''}}" >
         <br>
         <span style="color:red">
             @error('lname'){{ $message }}@enderror <br>
         </span>
         email <br>
-        <input type="email" name="email" placeholder="Enter your email">
+        <input type="email" name="email" placeholder="Enter your email" value="{{ old('email') }}"
+        class="{{$errors->first('email') ? 'input-error' : ''}}" >
         <br>
         <span style="color:red">
             @error('email'){{ $message }}@enderror <br>
@@ -41,3 +44,9 @@
         <input type="submit" value="Register">
     </form>
 </div>
+<style>
+    .input-error{
+        border:1px solid red;
+        color:red;
+    }
+</style>
