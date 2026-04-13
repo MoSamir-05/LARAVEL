@@ -17,8 +17,27 @@ class StudentController extends Controller
 
         if($student){
                 return "Student added successfully";
-            }else{
+            }
+            else{
                 return "Failed to add student";
             }
+
+            
     }
-}
+
+    
+    function list(){
+        $students = Student::all();
+        return view('list-student',['students'=>$students]);
+    }
+
+    
+    function delete($id){
+        $isDeleted=Student::destroy($id);
+        if($isDeleted){
+            return redirect('list');
+        }else{
+            return "Failed to delete student";
+        }
+    }
+}   
