@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\Appointment;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
@@ -46,4 +47,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function appointments()
+{
+    return $this->hasMany(Appointment::class);
+}
 }
